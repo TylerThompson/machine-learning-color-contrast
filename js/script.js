@@ -17,10 +17,10 @@ net.train([
  * @description: Change the color of the text based on the background
  * @param {*} e
  */
-function changeColor(e) {
+let changeColor = (e) => {
   document.body.style.backgroundColor = e.target.value;
   color = hexToRgb(e.target.value);
-  Object.keys(color).map(function (key, index) {
+  Object.keys(color).map((key, index) => {
     color[key] = +(color[key] / 255).toFixed(2);
   });
   output = net.run(color);
@@ -32,7 +32,7 @@ function changeColor(e) {
  * @description: Change our Hex values to Standard RGB output
  * @param {*} hex
  */
-function hexToRgb(hex) {
+let hexToRgb = (hex) => {
   // Expand shorthand form (e.g. "03F") to full form (e.g. "0033FF")
   let shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i;
   hex = hex.replace(shorthandRegex, function (m, r, g, b) {
@@ -52,7 +52,7 @@ function hexToRgb(hex) {
  * @description How likely the text is to be either white or black
  * @param {*} result
  */
-function likely(result) {
+let likely = (result) => {
   return result.white > result.black ? "white" : "black";
 }
 
